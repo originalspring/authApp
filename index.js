@@ -16,7 +16,11 @@ const exp = require('constants');
 const expressSession = require('express-session')({
     secret: 'secret',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: true,
+    cookie:{
+        secure:false,
+        maxAge:60000,
+    }
 });
 
 app.use(bodyParser.json());
@@ -168,7 +172,7 @@ app.get("/logout",
     });
 
 
-// REGISTER SOME USERS
+
 // UserDetails.register({
 //     username: 'paul',
 //     active: false
